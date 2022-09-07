@@ -183,9 +183,9 @@ function viewBooks(books) {
 
         let image = document.createElement("img")
         image.classList.add("ebook-image")
-        image.setAttribute("src", `${book.coverimgpath}`)
+        image.setAttribute("src", `${book.coverimgpath.replace(".jpg", "-thumbnail.jpg")}`)
         image.setAttribute("alt", `${book.title}`)
-        image.setAttribute("usd_price", `${book.coverimgpath.replace(".jpg", "-thumbnail.jpg")}`);
+        image.setAttribute("usd_price", `${book.usd_price}`);
 
         images.appendChild(image)
 
