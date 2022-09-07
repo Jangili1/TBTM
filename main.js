@@ -185,7 +185,7 @@ function viewBooks(books) {
         image.classList.add("ebook-image")
         image.setAttribute("src", `${book.coverimgpath}`)
         image.setAttribute("alt", `${book.title}`)
-        image.setAttribute("usd_price", `${book.usd_price}`);
+        image.setAttribute("usd_price", `${book.coverimgpath.replace(".jpg", "-thumbnail.jpg")}`);
 
         images.appendChild(image)
 
@@ -301,11 +301,14 @@ const gallery = document.getElementById("gallery");
 let maxBooks = 0;
 
 function mediaQueryChange() {
+     let stopSlider = window.matchMedia("(max-width: 572px)");
+         if(stopSlider.matches){
+         clearAutoPlay()
+    }
     let mobile = window.matchMedia("(max-width: 425px)");
     if (mobile.matches) {
         // window width is at less than 425px
         maxBooks = 24;
-         clearAutoPlay()
         // log.info("maxBooks = 24");
     }
     let tablet = window.matchMedia("(min-width: 768px)");
